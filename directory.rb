@@ -2,7 +2,7 @@
 def input_students
   puts "Please enter the names of the students"
   puts "To finish, just hit the return twice"
-  name = gets.chomp
+  name = gets.gsub("\n","")
   if name == ""
     name = "Von Smith"
   else
