@@ -27,9 +27,9 @@ def print(students)
     students.each_with_index do |student, index|
       student.each do |name, value|
         while value.downcase[0] == 'v' && value.length < 12
-        puts"#{index+1}.#{student[:name]} (#{student[:cohort]} cohort)"
-        puts"Born in: #{student[:country]}, height:  #{student[:height]}"
-        puts"Hobbies:  #{student[:hobbies]}"
+        puts"#{index+1}.#{student[:name]} (#{student[:cohort]} cohort)".center(80)
+        puts"Born in: #{student[:country]}, height:  #{student[:height]}".center(80)
+        puts"Hobbies:  #{student[:hobbies]}".center(80)
         puts
       break
       end
