@@ -1,22 +1,39 @@
 
-def input_students
+def interactive_menu
+  students = []
+  loop do
+    # 1.  print the menu and ask the user what to do
+    puts "1.  Input the students"
+    puts "2.  Show the students"
+    puts "9.  Exit"  # 9 because we will be asking more questions
+    # 2.  read the input and save it into a variable
+    selection = gets.chomp
+    # 3. do what the user has asked
+    case selection
+    when "1"
+      students = input_students
+    when "2"
+      print_header
+      print(students)
+      print_footer(students)
+    when "9"
+      exit # this will cause the program to exit
+    else
+      puts "I don't understand what you meant, try again"
+    end
+  end
+end
+
+
+
+  def input_students
   puts "Please enter the names of the students"
   puts "To finish, just hit the return twice"
-  name = gets.gsub("\n","")
-  if name == ""
-    name = "Von Smith"
-  else
-    name
-  end
+  name = gets.chomp
   puts "Now please enter the student's cohort month"
   cohort = gets.chomp
-  if cohort == ""
-    cohort = "November"
-  else
-    cohort
-  end
   #create an empty array
-  students = []
+
   #get the first name
 
   #while the name is empty, repeat this code
@@ -63,7 +80,7 @@ def print_footer(names)
   end
 end
 #nothing happens untill we call the methods
-students = input_students
+interactive_menu
 print_header
 print(students)
 print_footer(students)
