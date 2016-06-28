@@ -59,6 +59,8 @@ end
 
 def process(selection)
     case selection
+    when "1".."4"
+      puts "Working...done"
     when "1"
       input_students
     when "2"
