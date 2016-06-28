@@ -59,21 +59,30 @@ end
 
 def process(selection)
     case selection
-    when "1".."4"
-      puts "Working...done"
     when "1"
       input_students
     when "2"
       show_students
     when "3"
+      input_feedback(selection)
       save_students
     when "4"
+      input_feedback(selection)
       load_students
     when "9"
       exit # this will cause the program to exit
     else
       puts "I don't understand what you meant, try again"
   end
+end
+
+def input_feedback(input)
+  case input
+    when "3"
+      puts "Working...your list is saved"
+    when"4"
+      puts "Working...student list is loaded"
+    end
 end
 
 def print_header
