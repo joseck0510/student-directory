@@ -28,12 +28,12 @@ def load_students
   if File.exists?(filename)
 
   #filename = "students.csv"
-    file = File.open(filename, "r")
+    file = File.open(filename, "r") do |file|
     file.readlines.each do |line|
       name, cohort = line.chomp.split(',')
-      @students << {name: name, cohort: cohort.to_sym}
+    @students << {name: name, cohort: cohort.to_sym}
     end
-  file.close
+  end
   else
   puts "File does not exist."
   exit
@@ -123,14 +123,14 @@ def save_students
   puts "Please enter filename to save as"
   filename = gets.chomp
   #open the file for writing
-  filename = File.open(filename + ".csv", "w")
+  filename = File.open(filename + ".csv", "w") do |filename|
   # iterate over the array of students
-  @students.each do |student|
-    student_data = [student[:name], student[:cohort]]
-    csv_line = student_data.join(",")
-    filename.puts csv_line
+    @students.each do |student|
+      student_data = [student[:name], student[:cohort]]
+      csv_line = student_data.join(",")
+      filename.puts csv_line
+    end
   end
-  filename.close
 end
 
 
